@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B70F1DEA2AFB47C9005C43B2 /* FLEXLiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1DE92AFB47C9005C43B2 /* FLEXLiftApp.swift */; };
+		B70F1DEC2AFB47C9005C43B2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1DEB2AFB47C9005C43B2 /* ContentView.swift */; };
+		B70F1DEE2AFB47CC005C43B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B70F1DED2AFB47CC005C43B2 /* Assets.xcassets */; };
+		B70F1DF12AFB47CC005C43B2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B70F1DF02AFB47CC005C43B2 /* Preview Assets.xcassets */; };
+		B70F1DFB2AFB47CC005C43B2 /* FLEXLiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1DFA2AFB47CC005C43B2 /* FLEXLiftTests.swift */; };
+		B70F1E052AFB47CC005C43B2 /* FLEXLiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1E042AFB47CC005C43B2 /* FLEXLiftUITests.swift */; };
+		B70F1E072AFB47CC005C43B2 /* FLEXLiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1E062AFB47CC005C43B2 /* FLEXLiftUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B70F1DF72AFB47CC005C43B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B70F1DDE2AFB47C9005C43B2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B70F1DE52AFB47C9005C43B2;
+			remoteInfo = FLEXLift;
+		};
+		B70F1E012AFB47CC005C43B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B70F1DDE2AFB47C9005C43B2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B70F1DE52AFB47C9005C43B2;
+			remoteInfo = FLEXLift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B70F1DE62AFB47C9005C43B2 /* FLEXLift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLEXLift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B70F1DE92AFB47C9005C43B2 /* FLEXLiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLEXLiftApp.swift; sourceTree = "<group>"; };
+		B70F1DEB2AFB47C9005C43B2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B70F1DED2AFB47CC005C43B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B70F1DF02AFB47CC005C43B2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B70F1DF62AFB47CC005C43B2 /* FLEXLiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FLEXLiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B70F1DFA2AFB47CC005C43B2 /* FLEXLiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLEXLiftTests.swift; sourceTree = "<group>"; };
+		B70F1E002AFB47CC005C43B2 /* FLEXLiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FLEXLiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B70F1E042AFB47CC005C43B2 /* FLEXLiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLEXLiftUITests.swift; sourceTree = "<group>"; };
+		B70F1E062AFB47CC005C43B2 /* FLEXLiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLEXLiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B70F1DE32AFB47C9005C43B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B70F1DF32AFB47CC005C43B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B70F1DFD2AFB47CC005C43B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B70F1DDD2AFB47C9005C43B2 = {
+			isa = PBXGroup;
+			children = (
+				B70F1DE82AFB47C9005C43B2 /* FLEXLift */,
+				B70F1DF92AFB47CC005C43B2 /* FLEXLiftTests */,
+				B70F1E032AFB47CC005C43B2 /* FLEXLiftUITests */,
+				B70F1DE72AFB47C9005C43B2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B70F1DE72AFB47C9005C43B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B70F1DE62AFB47C9005C43B2 /* FLEXLift.app */,
+				B70F1DF62AFB47CC005C43B2 /* FLEXLiftTests.xctest */,
+				B70F1E002AFB47CC005C43B2 /* FLEXLiftUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B70F1DE82AFB47C9005C43B2 /* FLEXLift */ = {
+			isa = PBXGroup;
+			children = (
+				B70F1DE92AFB47C9005C43B2 /* FLEXLiftApp.swift */,
+				B70F1DEB2AFB47C9005C43B2 /* ContentView.swift */,
+				B70F1DED2AFB47CC005C43B2 /* Assets.xcassets */,
+				B70F1DEF2AFB47CC005C43B2 /* Preview Content */,
+			);
+			path = FLEXLift;
+			sourceTree = "<group>";
+		};
+		B70F1DEF2AFB47CC005C43B2 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B70F1DF02AFB47CC005C43B2 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B70F1DF92AFB47CC005C43B2 /* FLEXLiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				B70F1DFA2AFB47CC005C43B2 /* FLEXLiftTests.swift */,
+			);
+			path = FLEXLiftTests;
+			sourceTree = "<group>";
+		};
+		B70F1E032AFB47CC005C43B2 /* FLEXLiftUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B70F1E042AFB47CC005C43B2 /* FLEXLiftUITests.swift */,
+				B70F1E062AFB47CC005C43B2 /* FLEXLiftUITestsLaunchTests.swift */,
+			);
+			path = FLEXLiftUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B70F1DE52AFB47C9005C43B2 /* FLEXLift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B70F1E0A2AFB47CC005C43B2 /* Build configuration list for PBXNativeTarget "FLEXLift" */;
+			buildPhases = (
+				B70F1DE22AFB47C9005C43B2 /* Sources */,
+				B70F1DE32AFB47C9005C43B2 /* Frameworks */,
+				B70F1DE42AFB47C9005C43B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FLEXLift;
+			productName = FLEXLift;
+			productReference = B70F1DE62AFB47C9005C43B2 /* FLEXLift.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B70F1DF52AFB47CC005C43B2 /* FLEXLiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B70F1E0D2AFB47CC005C43B2 /* Build configuration list for PBXNativeTarget "FLEXLiftTests" */;
+			buildPhases = (
+				B70F1DF22AFB47CC005C43B2 /* Sources */,
+				B70F1DF32AFB47CC005C43B2 /* Frameworks */,
+				B70F1DF42AFB47CC005C43B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B70F1DF82AFB47CC005C43B2 /* PBXTargetDependency */,
+			);
+			name = FLEXLiftTests;
+			productName = FLEXLiftTests;
+			productReference = B70F1DF62AFB47CC005C43B2 /* FLEXLiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B70F1DFF2AFB47CC005C43B2 /* FLEXLiftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B70F1E102AFB47CC005C43B2 /* Build configuration list for PBXNativeTarget "FLEXLiftUITests" */;
+			buildPhases = (
+				B70F1DFC2AFB47CC005C43B2 /* Sources */,
+				B70F1DFD2AFB47CC005C43B2 /* Frameworks */,
+				B70F1DFE2AFB47CC005C43B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B70F1E022AFB47CC005C43B2 /* PBXTargetDependency */,
+			);
+			name = FLEXLiftUITests;
+			productName = FLEXLiftUITests;
+			productReference = B70F1E002AFB47CC005C43B2 /* FLEXLiftUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B70F1DDE2AFB47C9005C43B2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					B70F1DE52AFB47C9005C43B2 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					B70F1DF52AFB47CC005C43B2 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = B70F1DE52AFB47C9005C43B2;
+					};
+					B70F1DFF2AFB47CC005C43B2 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = B70F1DE52AFB47C9005C43B2;
+					};
+				};
+			};
+			buildConfigurationList = B70F1DE12AFB47C9005C43B2 /* Build configuration list for PBXProject "FLEXLift" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B70F1DDD2AFB47C9005C43B2;
+			productRefGroup = B70F1DE72AFB47C9005C43B2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B70F1DE52AFB47C9005C43B2 /* FLEXLift */,
+				B70F1DF52AFB47CC005C43B2 /* FLEXLiftTests */,
+				B70F1DFF2AFB47CC005C43B2 /* FLEXLiftUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B70F1DE42AFB47C9005C43B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B70F1DF12AFB47CC005C43B2 /* Preview Assets.xcassets in Resources */,
+				B70F1DEE2AFB47CC005C43B2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B70F1DF42AFB47CC005C43B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B70F1DFE2AFB47CC005C43B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B70F1DE22AFB47C9005C43B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B70F1DEC2AFB47C9005C43B2 /* ContentView.swift in Sources */,
+				B70F1DEA2AFB47C9005C43B2 /* FLEXLiftApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B70F1DF22AFB47CC005C43B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B70F1DFB2AFB47CC005C43B2 /* FLEXLiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B70F1DFC2AFB47CC005C43B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B70F1E072AFB47CC005C43B2 /* FLEXLiftUITestsLaunchTests.swift in Sources */,
+				B70F1E052AFB47CC005C43B2 /* FLEXLiftUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B70F1DF82AFB47CC005C43B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B70F1DE52AFB47C9005C43B2 /* FLEXLift */;
+			targetProxy = B70F1DF72AFB47CC005C43B2 /* PBXContainerItemProxy */;
+		};
+		B70F1E022AFB47CC005C43B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B70F1DE52AFB47C9005C43B2 /* FLEXLift */;
+			targetProxy = B70F1E012AFB47CC005C43B2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B70F1E082AFB47CC005C43B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B70F1E092AFB47CC005C43B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B70F1E0B2AFB47CC005C43B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FLEXLift/Preview Content\"";
+				DEVELOPMENT_TEAM = 9K5FXFZN54;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ava.FLEXLift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B70F1E0C2AFB47CC005C43B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FLEXLift/Preview Content\"";
+				DEVELOPMENT_TEAM = 9K5FXFZN54;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ava.FLEXLift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B70F1E0E2AFB47CC005C43B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9K5FXFZN54;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ava.FLEXLiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FLEXLift.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FLEXLift";
+			};
+			name = Debug;
+		};
+		B70F1E0F2AFB47CC005C43B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9K5FXFZN54;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ava.FLEXLiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FLEXLift.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FLEXLift";
+			};
+			name = Release;
+		};
+		B70F1E112AFB47CC005C43B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9K5FXFZN54;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ava.FLEXLiftUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FLEXLift;
+			};
+			name = Debug;
+		};
+		B70F1E122AFB47CC005C43B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9K5FXFZN54;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ava.FLEXLiftUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FLEXLift;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B70F1DE12AFB47C9005C43B2 /* Build configuration list for PBXProject "FLEXLift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B70F1E082AFB47CC005C43B2 /* Debug */,
+				B70F1E092AFB47CC005C43B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B70F1E0A2AFB47CC005C43B2 /* Build configuration list for PBXNativeTarget "FLEXLift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B70F1E0B2AFB47CC005C43B2 /* Debug */,
+				B70F1E0C2AFB47CC005C43B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B70F1E0D2AFB47CC005C43B2 /* Build configuration list for PBXNativeTarget "FLEXLiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B70F1E0E2AFB47CC005C43B2 /* Debug */,
+				B70F1E0F2AFB47CC005C43B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B70F1E102AFB47CC005C43B2 /* Build configuration list for PBXNativeTarget "FLEXLiftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B70F1E112AFB47CC005C43B2 /* Debug */,
+				B70F1E122AFB47CC005C43B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B70F1DDE2AFB47C9005C43B2 /* Project object */;
+}
