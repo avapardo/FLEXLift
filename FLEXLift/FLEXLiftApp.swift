@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct FLEXLiftApp: App {
+    var user = User()
+    var bluetoothManager = BluetoothManager()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(user)
+                .environmentObject(bluetoothManager)
         }
     }
 }

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B70E63A22B07BA3600872F45 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70E63A12B07BA3600872F45 /* ExerciseView.swift */; };
+		B70E63A42B07BCD100872F45 /* EndExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70E63A32B07BCD100872F45 /* EndExerciseView.swift */; };
+		B70E63A62B07BE7E00872F45 /* WorkoutSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70E63A52B07BE7E00872F45 /* WorkoutSummaryView.swift */; };
+		B70E63AA2B07C10000872F45 /* Rep.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70E63A92B07C10000872F45 /* Rep.swift */; };
+		B70E63AC2B07CAAA00872F45 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70E63AB2B07CAAA00872F45 /* Entry.swift */; };
+		B70E63AE2B07CC4F00872F45 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70E63AD2B07CC4F00872F45 /* Exercise.swift */; };
+		B70E63B02B07D21500872F45 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70E63AF2B07D21500872F45 /* Workout.swift */; };
 		B70F1DEA2AFB47C9005C43B2 /* FLEXLiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1DE92AFB47C9005C43B2 /* FLEXLiftApp.swift */; };
 		B70F1DEC2AFB47C9005C43B2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1DEB2AFB47C9005C43B2 /* ContentView.swift */; };
 		B70F1DEE2AFB47CC005C43B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B70F1DED2AFB47CC005C43B2 /* Assets.xcassets */; };
@@ -14,6 +21,16 @@
 		B70F1DFB2AFB47CC005C43B2 /* FLEXLiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1DFA2AFB47CC005C43B2 /* FLEXLiftTests.swift */; };
 		B70F1E052AFB47CC005C43B2 /* FLEXLiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1E042AFB47CC005C43B2 /* FLEXLiftUITests.swift */; };
 		B70F1E072AFB47CC005C43B2 /* FLEXLiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1E062AFB47CC005C43B2 /* FLEXLiftUITestsLaunchTests.swift */; };
+		B70F1E1B2AFB490A005C43B2 /* UserMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1E1A2AFB4909005C43B2 /* UserMainView.swift */; };
+		B70F1E1D2AFB493C005C43B2 /* ProfileSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1E1C2AFB493C005C43B2 /* ProfileSetupView.swift */; };
+		B70F1E1F2AFB494E005C43B2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1E1E2AFB494E005C43B2 /* SettingsView.swift */; };
+		B70F1E212AFB495D005C43B2 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1E202AFB495D005C43B2 /* ProfileEditView.swift */; };
+		B70F1E232AFB4970005C43B2 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1E222AFB4970005C43B2 /* UserProfileView.swift */; };
+		B70F1E262AFB49A3005C43B2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1E252AFB49A3005C43B2 /* User.swift */; };
+		B70F1E282AFB4A4D005C43B2 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1E272AFB4A4D005C43B2 /* Bluetooth.swift */; };
+		B70F1E2A2AFB5F23005C43B2 /* WorkoutMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1E292AFB5F23005C43B2 /* WorkoutMainView.swift */; };
+		B70F1E2C2AFB5F57005C43B2 /* HomeMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1E2B2AFB5F57005C43B2 /* HomeMainView.swift */; };
+		B70F1E2F2AFC1052005C43B2 /* BeginWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1E2E2AFC1052005C43B2 /* BeginWorkoutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +51,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B70E63A12B07BA3600872F45 /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
+		B70E63A32B07BCD100872F45 /* EndExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndExerciseView.swift; sourceTree = "<group>"; };
+		B70E63A52B07BE7E00872F45 /* WorkoutSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSummaryView.swift; sourceTree = "<group>"; };
+		B70E63A92B07C10000872F45 /* Rep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rep.swift; sourceTree = "<group>"; };
+		B70E63AB2B07CAAA00872F45 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		B70E63AD2B07CC4F00872F45 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		B70E63AF2B07D21500872F45 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		B70F1DE62AFB47C9005C43B2 /* FLEXLift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLEXLift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B70F1DE92AFB47C9005C43B2 /* FLEXLiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLEXLiftApp.swift; sourceTree = "<group>"; };
 		B70F1DEB2AFB47C9005C43B2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +68,17 @@
 		B70F1E002AFB47CC005C43B2 /* FLEXLiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FLEXLiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B70F1E042AFB47CC005C43B2 /* FLEXLiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLEXLiftUITests.swift; sourceTree = "<group>"; };
 		B70F1E062AFB47CC005C43B2 /* FLEXLiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLEXLiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B70F1E1A2AFB4909005C43B2 /* UserMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMainView.swift; sourceTree = "<group>"; };
+		B70F1E1C2AFB493C005C43B2 /* ProfileSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetupView.swift; sourceTree = "<group>"; };
+		B70F1E1E2AFB494E005C43B2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B70F1E202AFB495D005C43B2 /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
+		B70F1E222AFB4970005C43B2 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		B70F1E252AFB49A3005C43B2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B70F1E272AFB4A4D005C43B2 /* Bluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bluetooth.swift; sourceTree = "<group>"; };
+		B70F1E292AFB5F23005C43B2 /* WorkoutMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutMainView.swift; sourceTree = "<group>"; };
+		B70F1E2B2AFB5F57005C43B2 /* HomeMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainView.swift; sourceTree = "<group>"; };
+		B70F1E2D2AFBF15F005C43B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B70F1E2E2AFC1052005C43B2 /* BeginWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginWorkoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +129,12 @@
 		B70F1DE82AFB47C9005C43B2 /* FLEXLift */ = {
 			isa = PBXGroup;
 			children = (
+				B70F1E242AFB4987005C43B2 /* Classes */,
+				B70F1E132AFB486D005C43B2 /* Views */,
 				B70F1DE92AFB47C9005C43B2 /* FLEXLiftApp.swift */,
 				B70F1DEB2AFB47C9005C43B2 /* ContentView.swift */,
 				B70F1DED2AFB47CC005C43B2 /* Assets.xcassets */,
+				B70F1E2D2AFBF15F005C43B2 /* Info.plist */,
 				B70F1DEF2AFB47CC005C43B2 /* Preview Content */,
 			);
 			path = FLEXLift;
@@ -125,6 +163,61 @@
 				B70F1E062AFB47CC005C43B2 /* FLEXLiftUITestsLaunchTests.swift */,
 			);
 			path = FLEXLiftUITests;
+			sourceTree = "<group>";
+		};
+		B70F1E132AFB486D005C43B2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B70F1E192AFB48C1005C43B2 /* UserView */,
+				B70F1E182AFB48BB005C43B2 /* WorkoutView */,
+				B70F1E172AFB48A7005C43B2 /* HomeView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B70F1E172AFB48A7005C43B2 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				B70F1E2B2AFB5F57005C43B2 /* HomeMainView.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		B70F1E182AFB48BB005C43B2 /* WorkoutView */ = {
+			isa = PBXGroup;
+			children = (
+				B70F1E292AFB5F23005C43B2 /* WorkoutMainView.swift */,
+				B70F1E2E2AFC1052005C43B2 /* BeginWorkoutView.swift */,
+				B70E63A12B07BA3600872F45 /* ExerciseView.swift */,
+				B70E63A32B07BCD100872F45 /* EndExerciseView.swift */,
+				B70E63A52B07BE7E00872F45 /* WorkoutSummaryView.swift */,
+			);
+			path = WorkoutView;
+			sourceTree = "<group>";
+		};
+		B70F1E192AFB48C1005C43B2 /* UserView */ = {
+			isa = PBXGroup;
+			children = (
+				B70F1E1A2AFB4909005C43B2 /* UserMainView.swift */,
+				B70F1E1C2AFB493C005C43B2 /* ProfileSetupView.swift */,
+				B70F1E1E2AFB494E005C43B2 /* SettingsView.swift */,
+				B70F1E202AFB495D005C43B2 /* ProfileEditView.swift */,
+				B70F1E222AFB4970005C43B2 /* UserProfileView.swift */,
+			);
+			path = UserView;
+			sourceTree = "<group>";
+		};
+		B70F1E242AFB4987005C43B2 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B70F1E272AFB4A4D005C43B2 /* Bluetooth.swift */,
+				B70F1E252AFB49A3005C43B2 /* User.swift */,
+				B70E63AF2B07D21500872F45 /* Workout.swift */,
+				B70E63AD2B07CC4F00872F45 /* Exercise.swift */,
+				B70E63A92B07C10000872F45 /* Rep.swift */,
+				B70E63AB2B07CAAA00872F45 /* Entry.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +350,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B70E63A42B07BCD100872F45 /* EndExerciseView.swift in Sources */,
+				B70E63AC2B07CAAA00872F45 /* Entry.swift in Sources */,
+				B70F1E2F2AFC1052005C43B2 /* BeginWorkoutView.swift in Sources */,
+				B70F1E232AFB4970005C43B2 /* UserProfileView.swift in Sources */,
+				B70F1E2A2AFB5F23005C43B2 /* WorkoutMainView.swift in Sources */,
+				B70F1E1F2AFB494E005C43B2 /* SettingsView.swift in Sources */,
+				B70F1E1B2AFB490A005C43B2 /* UserMainView.swift in Sources */,
 				B70F1DEC2AFB47C9005C43B2 /* ContentView.swift in Sources */,
+				B70F1E2C2AFB5F57005C43B2 /* HomeMainView.swift in Sources */,
+				B70F1E282AFB4A4D005C43B2 /* Bluetooth.swift in Sources */,
+				B70F1E262AFB49A3005C43B2 /* User.swift in Sources */,
+				B70F1E1D2AFB493C005C43B2 /* ProfileSetupView.swift in Sources */,
+				B70E63AA2B07C10000872F45 /* Rep.swift in Sources */,
+				B70F1E212AFB495D005C43B2 /* ProfileEditView.swift in Sources */,
+				B70E63A22B07BA3600872F45 /* ExerciseView.swift in Sources */,
 				B70F1DEA2AFB47C9005C43B2 /* FLEXLiftApp.swift in Sources */,
+				B70E63A62B07BE7E00872F45 /* WorkoutSummaryView.swift in Sources */,
+				B70E63B02B07D21500872F45 /* Workout.swift in Sources */,
+				B70E63AE2B07CC4F00872F45 /* Exercise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +535,8 @@
 				DEVELOPMENT_TEAM = 9K5FXFZN54;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FLEXLift/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Please allow bluetooth to connect to FLEX Lift Device";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -454,6 +566,8 @@
 				DEVELOPMENT_TEAM = 9K5FXFZN54;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FLEXLift/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Please allow bluetooth to connect to FLEX Lift Device";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

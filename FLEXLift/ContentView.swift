@@ -8,17 +8,35 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var user: User
+    @EnvironmentObject var bluetoothManager: BluetoothManager
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+            HStack {
+                if(user.tabView){
+                    TabView{
+                        HomeMainView()
+                            .tabItem(){
+                                Image("ic-home")
+                            }
+                        WorkoutMainView()
+                            .tabItem(){
+                                Image("ic-activity-circle")
+                            }
+                        UserMainView()
+                            .tabItem(){
+                                Image("ic-profile")
+                            }
+                    }
+                    
+                    .environmentObject(user)
+                    .environmentObject(bluetoothManager)
+                }
+            }
     }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(User())
+        .environmentObject(BluetoothManager())
 }
