@@ -19,11 +19,12 @@ struct ProfileEditView: View {
 
     
     var body: some View {
+        Text("FLEX Lift")
+            .font(.largeTitle)
+            .padding(.all)
+        Spacer()
+            .frame(height:110)
         VStack(spacing:30) {
-            Text("FLEX Lift")
-                .font(.largeTitle)
-                .padding(.all)
-            Spacer()
             HStack(){
                 TextField("Name", text: $firstName)
                 .padding(10)

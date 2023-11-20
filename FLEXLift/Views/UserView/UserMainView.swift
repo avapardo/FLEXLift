@@ -14,6 +14,7 @@ struct UserMainView: View {
     var body: some View {
             NavigationView {
                 VStack(spacing:15) {
+                    Spacer()
                     Text("FLEX Lift")
                         .font(.largeTitle)
                         .padding(.all)

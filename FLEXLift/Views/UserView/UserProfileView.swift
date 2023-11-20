@@ -17,11 +17,13 @@ struct UserProfileView: View {
                     Text("Profile")
                         .font(.title)
                         .fontWeight(.semibold)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.75)
                         .foregroundColor(Color.black)
                     Spacer()
                         .frame(width: 30.0)
                     NavigationLink(destination: ProfileEditView()) {
-                        Text("Edit Profile")
+                        Text("Edit")
                             .padding(.all, 10.0)
                             .foregroundColor(.white)
                             .background(RoundedRectangle(cornerRadius: 25).fill(Color("AccentColor")))
@@ -38,10 +40,12 @@ struct UserProfileView: View {
                         .frame(width: 25.0)
                     VStack(){
                         Text("Age")
-                            .minimumScaleFactor(0.5) // The text can scale down to half its size if needed
+                            .minimumScaleFactor(0.5)
+                            .lineLimit(1)
                             .frame(width: 35)
                         Text("\(user.age)")
-                            .minimumScaleFactor(0.5) // The text can scale down to half its size if needed
+                            .minimumScaleFactor(0.5)
+                            .lineLimit(1)
                             .frame(width: 50)
                     }
                     .frame(width:55, height: 55)
@@ -53,10 +57,12 @@ struct UserProfileView: View {
                     Spacer()
                     VStack(){
                         Text("Height")
-                            .minimumScaleFactor(0.5) // The text can scale down to half its size if needed
+                            .minimumScaleFactor(0.5)
+                            .lineLimit(1)
                             .frame(width: 45)
                         Text("\(user.height)")
-                            .minimumScaleFactor(0.5) // The text can scale down to half its size if needed
+                            .minimumScaleFactor(0.5)
+                            .lineLimit(1)
                             .frame(width: 50)
                         
                     }
@@ -69,10 +75,12 @@ struct UserProfileView: View {
                     Spacer()
                     VStack(){
                         Text("Weight")
-                            .minimumScaleFactor(0.5) // The text can scale down to half its size if needed
+                            .minimumScaleFactor(0.5)
+                            .lineLimit(1)
                             .frame(width: 45)
                         Text("\(user.weight)")
-                            .minimumScaleFactor(0.5) // The text can scale down to half its size if needed
+                            .minimumScaleFactor(0.5)
+                            .lineLimit(1)
                             .frame(width: 50)
                         
                     }

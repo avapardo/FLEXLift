@@ -29,6 +29,8 @@ struct SettingsView: View {
                         .foregroundColor(Color.gray)
                         .lineLimit(1)
                         .minimumScaleFactor(0.75)
+                    Spacer()
+                        .frame(width:137)
                     if(bluetoothManager.isConnected){
                         Button("Disconnect"){
                             bluetoothManager.disconnect()
@@ -46,7 +48,7 @@ struct SettingsView: View {
                         Button("Connect"){
                             bluetoothManager.connect()
                         }
-                        .padding(.all, 3.0)
+                        .padding(.all, 10)
                         .lineLimit(1)
                         .minimumScaleFactor(0.75)
                         .foregroundColor(.white)
@@ -62,6 +64,8 @@ struct SettingsView: View {
                         .foregroundColor(Color.gray)
                         .lineLimit(1)
                         .minimumScaleFactor(0.75)
+                    Spacer()
+                        .frame(width:200)
                     Text("N/A")
                 }
             Spacer()

@@ -11,7 +11,7 @@ struct ProfileSetupView: View {
     @EnvironmentObject var user: User
 
     var body: some View {
-                VStack(alignment: .leading, spacing: 16.0) {
+                VStack() {
                     Spacer()
                     HStack() {
                         Spacer()
@@ -21,6 +21,7 @@ struct ProfileSetupView: View {
                             .foregroundColor(Color.black)
                         Spacer()
                     }
+                    Spacer()
                     HStack(){
                         Spacer()
                         Text("Please complete your profile")
@@ -29,6 +30,7 @@ struct ProfileSetupView: View {
                             .minimumScaleFactor(0.8) // The text can scale down to half its size if needed
                         Spacer()
                     }
+                    Spacer()
                     HStack(){
                         Spacer()
                         NavigationLink(destination: ProfileEditView()){
