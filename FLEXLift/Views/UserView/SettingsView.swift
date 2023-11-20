@@ -30,12 +30,12 @@ struct SettingsView: View {
                         .lineLimit(1)
                         .minimumScaleFactor(0.75)
                     Spacer()
-                        .frame(width:137)
+                        .frame(width:130)
                     if(bluetoothManager.isConnected){
                         Button("Disconnect"){
                             bluetoothManager.disconnect()
                         }
-                        .padding(.all, 3.0)
+                        .padding(.all, 10.0)
                         .lineLimit(1)
                         .minimumScaleFactor(0.75)
                         .foregroundColor(.white)

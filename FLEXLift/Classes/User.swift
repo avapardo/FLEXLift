@@ -22,13 +22,14 @@ class User: ObservableObject{
     @Published var workoutSummary: Bool
     @Published var isTimerRunning: Bool
     @Published var elapsedTime: Double
+    @Published var inWorkout: Bool
     private var timer: Timer?
     
     init(){
         name = "Enter name"
         height = 0
         weight = 0
-        gender = "Enter gender"
+        gender = "Select gender"
         age = 0
         profileSetup = false
         tabView = true
@@ -39,6 +40,7 @@ class User: ObservableObject{
         workoutSummary = false
         isTimerRunning = false
         elapsedTime = 0.0
+        inWorkout = false
     }
     
     func startTimer() {

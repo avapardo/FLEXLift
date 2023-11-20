@@ -13,11 +13,11 @@ struct WorkoutMainView: View {
     
     var body: some View {
         NavigationView {
-            VStack(spacing:15) {
+            VStack() {
                 Text("FLEX Lift")
                     .font(.largeTitle)
-                    .padding(.all)
-                Spacer(minLength: 160)
+                    
+                Spacer(minLength: 150)
                 if(user.beginWorkout){
                     BeginWorkoutView()
                 }

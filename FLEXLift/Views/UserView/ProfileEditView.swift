@@ -16,17 +16,16 @@ struct ProfileEditView: View {
     
     @EnvironmentObject var user: User
     @State private var isLinkActive = false
-
     
     var body: some View {
         Text("FLEX Lift")
             .font(.largeTitle)
             .padding(.all)
         Spacer()
-            .frame(height:110)
+            .frame(height:150)
         VStack(spacing:30) {
             HStack(){
-                TextField("Name", text: $firstName)
+                TextField("First Name", text: $firstName)
                 .padding(10)
                 .overlay {
                     RoundedRectangle(cornerRadius: 10)
@@ -37,7 +36,27 @@ struct ProfileEditView: View {
                 .frame(width: 320, height: 50.0)
             }
             HStack(){
-                TextField("Gender", text: $gender)
+                Menu {
+                    Button {
+                        user.gender = "f"
+                    } label: {
+                        Text("Female")
+                            .foregroundColor(Color.black)
+                    }
+                    Button {
+                        user.gender = "m"
+                    } label: {
+                        Text("Male")
+                            .foregroundColor(Color.black)
+                    }
+                }
+            label: {
+                Text(user.gender)
+                    .foregroundColor(Color(UIColor.lightGray))
+            }
+                Spacer()
+                    .frame(width:165)
+            }
                 .padding(10)
                 .overlay {
                     RoundedRectangle(cornerRadius: 10)
@@ -45,8 +64,6 @@ struct ProfileEditView: View {
                         .frame(width: 300.0, height: 50.0)
                 }
                 .padding(.horizontal)
-                .frame(width: 320, height: 50.0)
-            }
             HStack(){
                 TextField("Birthday: MM/dd/yyyy", text: $birthday)
                 .padding(10)

@@ -15,26 +15,29 @@ struct WorkoutSummaryView: View {
     @State private var weight: String = ""
     var body: some View {
         VStack {
-            Text("Today's Workout Summary")
+            Spacer()
+            Text("Workout Summary")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                .padding(.all)
+                .padding(.horizontal)
                 .fontWeight(.semibold)
                 .foregroundColor(Color.black)
                 .lineLimit(1)
                 .minimumScaleFactor(0.50)
+            Spacer()
             ScrollView{
                 if let lastWorkout = user.workouts.last {
                     ForEach(lastWorkout.exercises, id: \.self) { exercise in
                         VStack(){
-                            HStack(){
+                            Spacer()
                                     Text("\(exercise.exerciseType) Summary")
                                         .font(.headline)
                                         .fontWeight(.regular)
                                         .foregroundColor(Color.black)
                                         .minimumScaleFactor(0.5)
                                         .lineLimit(1)
-                            }
+                            Spacer()
                             Text("\(exercise.weight) lb")
+                            Spacer()
                             HStack(){
                                 VStack(){
                                     Text("Time")
@@ -63,6 +66,7 @@ struct WorkoutSummaryView: View {
                                         .shadow(color: Color(hue: 1.0, saturation: 0.0, brightness: 0.918), radius: 10, x: 0, y: 2)
                                 )
                             }
+                            Spacer()
                         }
                         .frame(width:265, height: 150)
                         .background(
@@ -80,17 +84,15 @@ struct WorkoutSummaryView: View {
                     .shadow(color: Color(hue: 1.0, saturation: 0.0, brightness: 0.918), radius: 10, x: 0, y: 2)
             )
             Spacer()
-                .frame(height:10)
             HStack(){
                     Button("New Workout") {
-                        bluetoothManager.sendText("Start")
                         user.beginWorkout = true
                         user.duringExercise = false
                         user.endExercise = false
                         user.workoutSummary = false
                         user.workouts.append(Workout())
                     }
-                    .padding(.all, 3.0)
+                    .padding(.all, 10.0)
                     .lineLimit(1)
                     .minimumScaleFactor(0.6)
                     .foregroundColor(.white)
@@ -105,7 +107,7 @@ struct WorkoutSummaryView: View {
                     user.endExercise = false
                     user.workoutSummary = true
                 }
-                .padding(.all, 3.0)
+                .padding(.all, 10.0)
                 .lineLimit(2)
                 .minimumScaleFactor(0.75)
                 .foregroundColor(.white)
@@ -114,8 +116,8 @@ struct WorkoutSummaryView: View {
                         .fill(Color("AccentColor"))
                 )
             }
+            Spacer()
         }
-        .padding()
         .frame(width:300, height:300)
         .background(
             RoundedRectangle(cornerRadius: 25)

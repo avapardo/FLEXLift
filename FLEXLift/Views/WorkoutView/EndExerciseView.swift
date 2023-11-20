@@ -12,13 +12,13 @@ struct EndExerciseView: View {
     @EnvironmentObject var user: User
     var body: some View {
         VStack {
-            VStack(){
-                HStack(){
+            Spacer()
                     if let lastWorkout = user.workouts.last,
                        let lastExercise = lastWorkout.exercises.last {
                         Text("\(lastExercise.exerciseType) Summary")
                             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                             .fontWeight(.semibold)
+                            .padding(.horizontal)
                             .foregroundColor(Color.black)
                             .lineLimit(1)
                             .minimumScaleFactor(0.6)
@@ -28,17 +28,17 @@ struct EndExerciseView: View {
                             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                             .fontWeight(.semibold)
                             .foregroundColor(Color.black)
-                            .padding(.all)
                             .lineLimit(1)
                             .minimumScaleFactor(0.75)
                     }
-                }
+            Spacer()
                 if let lastWorkout = user.workouts.last,
                            let lastExercise = lastWorkout.exercises.last {
                     Text("\(lastExercise.weight) lb")
                         } else {
                             Text("No entry")
                         }
+            Spacer()
                 HStack(){
                     VStack(){
                         Text("Time")
@@ -72,11 +72,7 @@ struct EndExerciseView: View {
                             .shadow(color: Color(hue: 1.0, saturation: 0.0, brightness: 0.918), radius: 10, x: 0, y: 2)
                     )
                 }
-            }
             Spacer()
-                .frame(height:10)
-            Spacer()
-                .frame(height:10)
             HStack(){
                     Button("Add Exercise") {
                         if let lastWorkout = user.workouts.last,
@@ -89,7 +85,7 @@ struct EndExerciseView: View {
                         user.endExercise = false
                         user.workoutSummary = false
                     }
-                    .padding(.all, 3.0)
+                    .padding(.all, 10.0)
                     .lineLimit(2)
                     .minimumScaleFactor(0.6)
                     .foregroundColor(.white)
@@ -108,7 +104,7 @@ struct EndExerciseView: View {
                     user.endExercise = false
                     user.workoutSummary = true
                 }
-                .padding(.all, 3.0)
+                .padding(.all, 10.0)
                 .lineLimit(2)
                 .minimumScaleFactor(0.75)
                 .foregroundColor(.white)
@@ -117,8 +113,8 @@ struct EndExerciseView: View {
                         .fill(Color("AccentColor"))
                 )
             }
+            Spacer()
         }
-        .padding()
         .frame(width:300, height:300)
         .background(
             RoundedRectangle(cornerRadius: 25)

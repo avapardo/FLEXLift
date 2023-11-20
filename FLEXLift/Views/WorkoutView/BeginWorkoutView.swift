@@ -15,17 +15,29 @@ struct BeginWorkoutView: View {
     @State private var weight: String = ""
     var body: some View {
         VStack {
-            VStack(alignment: .leading, spacing: 16.0) {
-                Text("Begin Workout")
-                    .font(.title)
-                    .fontWeight(.semibold)
-                    .foregroundColor(Color.black)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.75)
-                    .padding(.all)
+            Spacer()
+            VStack() {
+                if(user.inWorkout == false){
+                    Text("Begin Workout")
+                        .font(.title)
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color.black)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.75)
+                        .padding(.all)
+                }
+                else{
+                    Text("Begin Exercise")
+                        .font(.title)
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color.black)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.75)
+                        .padding(.all)
+                    
+                }
             }
             Spacer()
-                .frame(height:0)
             VStack(){
                 Menu {
                     Button {
@@ -82,9 +94,7 @@ struct BeginWorkoutView: View {
                     Text(currentSelection)
                 }
             }
-            .padding(.all)
             Spacer()
-                .frame(height:10)
             HStack(){
                 TextField("Enter Weight", text: $weight)
                 .padding(10)
@@ -96,10 +106,9 @@ struct BeginWorkoutView: View {
                         .frame(width: 150.0, height: 35.0)
                 }
                 .padding(.horizontal)
-                .frame(width: 170, height: 50.0)
+                .frame(width: 150, height: 50.0)
             }
             Spacer()
-                .frame(height:20)
             if(startStopButton){
                 Button("Start") {
                     bluetoothManager.sendText("Start")
@@ -112,6 +121,7 @@ struct BeginWorkoutView: View {
                     if let lastWorkout = user.workouts.last {
                         lastWorkout.exercises.append(Exercise(exerciseType: currentSelection, weight: weightVal))
                     }
+                    user.inWorkout = true
                     startStopButton = false
                     user.beginWorkout = false
                     user.duringExercise = true
@@ -119,7 +129,7 @@ struct BeginWorkoutView: View {
                     user.workoutSummary = false
                     user.startTimer()
                 }
-                .padding(.all, 5)
+                .padding(.all, 10)
                 .lineLimit(1)
                 .minimumScaleFactor(0.75)
                 .foregroundColor(.white)
@@ -127,8 +137,8 @@ struct BeginWorkoutView: View {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color("AccentColor"))
                 )}
+            Spacer()
         }
-        .padding()
         .frame(width:300, height:300)
         .background(
             RoundedRectangle(cornerRadius: 25)

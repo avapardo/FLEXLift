@@ -15,8 +15,7 @@ struct ExerciseView: View {
     @State private var weight: String = ""
     var body: some View {
         VStack {
-            VStack(){
-                HStack(){
+            Spacer()
                     if let lastWorkout = user.workouts.last,
                        let lastExercise = lastWorkout.exercises.last {
                         Text("\(lastExercise.exerciseType)")
@@ -27,17 +26,14 @@ struct ExerciseView: View {
                         Text("No entry")
                             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     }
-                }
                 Spacer()
-                    .frame(height:20)
                 if let lastWorkout = user.workouts.last,
                            let lastExercise = lastWorkout.exercises.last {
                     Text("\(lastExercise.weight) lb")
                         } else {
                             Text("No entry")
                         }
-            }
-            .padding(.all)
+            Spacer()
             HStack(){
                 VStack(){
                     Text("Time")
@@ -67,9 +63,6 @@ struct ExerciseView: View {
                 )
             }
             Spacer()
-                .frame(height:10)
-            Spacer()
-                .frame(height:10)
             HStack(){
                 if(startStopButton){
                     Button("Pause") {
@@ -77,7 +70,7 @@ struct ExerciseView: View {
                         startStopButton = false
                         user.pauseTimer()
                     }
-                    .padding(.all, 3.0)
+                    .padding(.all, 10.0)
                     .lineLimit(1)
                     .minimumScaleFactor(0.75)
                     .foregroundColor(.white)
@@ -91,7 +84,7 @@ struct ExerciseView: View {
                         startStopButton = true
                         user.startTimer()
                     }
-                    .padding(.all, 3.0)
+                    .padding(.all, 10.0)
                     .lineLimit(1)
                     .minimumScaleFactor(0.75)
                     .foregroundColor(.white)
@@ -102,6 +95,7 @@ struct ExerciseView: View {
                 Button("Stop") {
                     bluetoothManager.sendText("Stop")
                     startStopButton = true
+                    user.inWorkout = false
                     user.beginWorkout = false
                     user.duringExercise = false
                     user.endExercise = true
@@ -112,7 +106,7 @@ struct ExerciseView: View {
                     }
                     user.resetTimer()
                 } 
-                .padding(.all, 3.0)
+                .padding(.all, 10.0)
                 .lineLimit(1)
                 .minimumScaleFactor(0.75)
                 .foregroundColor(.white)
@@ -121,6 +115,7 @@ struct ExerciseView: View {
                         .fill(Color("AccentColor"))
                 )
             }
+            Spacer()
         }
         .padding()
         .frame(width:300, height:300)
