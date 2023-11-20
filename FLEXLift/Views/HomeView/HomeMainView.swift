@@ -18,6 +18,10 @@ struct HomeMainView: View {
                     
                 Spacer(minLength: 150)
                 TodaysSummary()
+                Spacer()
+                WeekAvgView()
+                Spacer()
+                PRHistoryView()
                 Spacer(minLength:170)
             }
             .fixedSize(horizontal: true, vertical: true)

@@ -23,6 +23,16 @@ class User: ObservableObject{
     @Published var isTimerRunning: Bool
     @Published var elapsedTime: Double
     @Published var inWorkout: Bool
+    @Published var barbellLunge: [Exercise]
+    @Published var barbellSquat: [Exercise]
+    @Published var benchPress: [Exercise]
+    @Published var bicepCurl: [Exercise]
+    @Published var deadlift: [Exercise]
+    @Published var shoulderPress: [Exercise]
+    @Published var powerClean: [Exercise]
+    @Published var powerSnatch: [Exercise]
+    @Published var squatClean: [Exercise]
+    @Published var squatSnatch: [Exercise]
     private var timer: Timer?
     
     init(){
@@ -41,6 +51,16 @@ class User: ObservableObject{
         isTimerRunning = false
         elapsedTime = 0.0
         inWorkout = false
+        barbellLunge = []
+        barbellSquat = []
+        benchPress = []
+        bicepCurl = []
+        deadlift = []
+        shoulderPress = []
+        powerClean = []
+        powerSnatch = []
+        squatClean = []
+        squatSnatch = []
     }
     
     func startTimer() {

@@ -9,9 +9,11 @@ import Foundation
 
 class Workout: ObservableObject, Hashable{
     @Published var exercises: [Exercise]
+    @Published var date: String
 
     init(){
         exercises = []
+        date = TodaysDate()
     }
     
     static func == (lhs: Workout, rhs: Workout) -> Bool {
@@ -21,4 +23,11 @@ class Workout: ObservableObject, Hashable{
     func hash(into hasher: inout Hasher) {
             hasher.combine(exercises)
     }
+    
+}
+
+func TodaysDate() -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "MM/dd/yy"
+    return dateFormatter.string(from: Foundation.Date())
 }
