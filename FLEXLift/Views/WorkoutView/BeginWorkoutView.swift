@@ -34,7 +34,6 @@ struct BeginWorkoutView: View {
                         .lineLimit(1)
                         .minimumScaleFactor(0.75)
                         .padding(.all)
-                    
                 }
             }
             Spacer()

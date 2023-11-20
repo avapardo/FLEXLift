@@ -38,24 +38,31 @@ struct ProfileEditView: View {
             HStack(){
                 Menu {
                     Button {
-                        user.gender = "f"
+                        user.gender = "Female"
                     } label: {
                         Text("Female")
                             .foregroundColor(Color.black)
+                            .frame(width: 320, height: 50.0)
+                        Spacer()
+                            .frame(width:215)
                     }
                     Button {
-                        user.gender = "m"
+                        user.gender = "Male"
                     } label: {
                         Text("Male")
                             .foregroundColor(Color.black)
+                            .frame(width: 320, height: 50.0)
+                        Spacer()
+                            .frame(width:230)
                     }
                 }
             label: {
                 Text(user.gender)
                     .foregroundColor(Color(UIColor.lightGray))
-            }
+                    .frame(width: 320, height: 50.0)
                 Spacer()
                     .frame(width:165)
+            }
             }
                 .padding(10)
                 .overlay {
@@ -64,6 +71,7 @@ struct ProfileEditView: View {
                         .frame(width: 300.0, height: 50.0)
                 }
                 .padding(.horizontal)
+                .frame(width: 320, height: 50.0)
             HStack(){
                 TextField("Birthday: MM/dd/yyyy", text: $birthday)
                 .padding(10)

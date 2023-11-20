@@ -20,6 +20,7 @@ struct ExerciseView: View {
                        let lastExercise = lastWorkout.exercises.last {
                         Text("\(lastExercise.exerciseType)")
                             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                            .fontWeight(.semibold)
                             .lineLimit(1)
                             .minimumScaleFactor(0.75)
                     } else {
@@ -53,7 +54,15 @@ struct ExerciseView: View {
                         .font(.headline)
                         .lineLimit(1)
                         .minimumScaleFactor(0.75)
-                    Text("\(bluetoothManager.REP_COUNT)")
+                    if(bluetoothManager.REP_COUNT > 0){
+                        Text("\(bluetoothManager.REP_COUNT)")
+                    }
+                    else{
+                        Text("analyzing...")
+                            .lineLimit(1)
+                            .padding(.horizontal, 3)
+                            .minimumScaleFactor(0.5)
+                    }
                 }
                 .frame(width:75, height: 75)
                 .background(

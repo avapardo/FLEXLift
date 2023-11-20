@@ -80,6 +80,7 @@ struct EndExerciseView: View {
                             lastExercise.totalReps = bluetoothManager.REP_COUNT
                             bluetoothManager.resetBluetooth()
                             }
+                        user.inWorkout = true
                         user.beginWorkout = true
                         user.duringExercise = false
                         user.endExercise = false
@@ -99,6 +100,7 @@ struct EndExerciseView: View {
                         lastExercise.totalReps = bluetoothManager.REP_COUNT
                         bluetoothManager.resetBluetooth()
                     }
+                    user.inWorkout = false
                     user.beginWorkout = false
                     user.duringExercise = false
                     user.endExercise = false

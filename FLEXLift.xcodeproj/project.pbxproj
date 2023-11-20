@@ -31,6 +31,7 @@
 		B70F1E2A2AFB5F23005C43B2 /* WorkoutMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1E292AFB5F23005C43B2 /* WorkoutMainView.swift */; };
 		B70F1E2C2AFB5F57005C43B2 /* HomeMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1E2B2AFB5F57005C43B2 /* HomeMainView.swift */; };
 		B70F1E2F2AFC1052005C43B2 /* BeginWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70F1E2E2AFC1052005C43B2 /* BeginWorkoutView.swift */; };
+		B73BFC722B0AFF0E00D03F10 /* TodaysSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73BFC712B0AFF0E00D03F10 /* TodaysSummary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		B70F1E2B2AFB5F57005C43B2 /* HomeMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainView.swift; sourceTree = "<group>"; };
 		B70F1E2D2AFBF15F005C43B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B70F1E2E2AFC1052005C43B2 /* BeginWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginWorkoutView.swift; sourceTree = "<group>"; };
+		B73BFC712B0AFF0E00D03F10 /* TodaysSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysSummary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				B70F1E2B2AFB5F57005C43B2 /* HomeMainView.swift */,
+				B73BFC712B0AFF0E00D03F10 /* TodaysSummary.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				B70F1E282AFB4A4D005C43B2 /* Bluetooth.swift in Sources */,
 				B70F1E262AFB49A3005C43B2 /* User.swift in Sources */,
 				B70F1E1D2AFB493C005C43B2 /* ProfileSetupView.swift in Sources */,
+				B73BFC722B0AFF0E00D03F10 /* TodaysSummary.swift in Sources */,
 				B70E63AA2B07C10000872F45 /* Rep.swift in Sources */,
 				B70F1E212AFB495D005C43B2 /* ProfileEditView.swift in Sources */,
 				B70E63A22B07BA3600872F45 /* ExerciseView.swift in Sources */,
