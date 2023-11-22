@@ -232,5 +232,18 @@ class User: ObservableObject{
     func workoutsOnDate(date: String) -> [Workout]{
         return workouts.filter { $0.date == date }
     }
+    
+    func getWorkoutDates() -> [String] {
+        // Create a set to hold unique dates
+        var uniqueDates = Set<String>()
+
+        // Iterate over each workout and add its date to the set
+        for workout in workouts {
+            uniqueDates.insert(workout.date)
+        }
+
+        // Convert the set back to an array and return
+        return Array(uniqueDates).sorted()
+    }
 }
 

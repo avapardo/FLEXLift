@@ -25,5 +25,4 @@ class ENTRY: ObservableObject, Hashable{
         hasher.combine(value)
     }
     
-    
 }

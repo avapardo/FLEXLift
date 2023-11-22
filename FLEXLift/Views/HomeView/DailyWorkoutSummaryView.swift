@@ -9,11 +9,37 @@ import SwiftUI
 
 struct DailyWorkoutSummaryView: View {
     @EnvironmentObject var user: User
+    @State private var selectedDate: String = ""
     var body: some View {
         VStack(){
-             let workoutsToday = user.workoutsOnDate(date: "11/21/23")
-                ForEach(workoutsToday, id: \.self) { workout in
-                    ScrollView{
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    ForEach(user.getWorkoutDates(), id: \.self) { date in
+                        VStack {
+                            Text(date)
+                                .minimumScaleFactor(0.5)
+                                .lineLimit(1)
+                                .frame(width: 50)
+                        }
+                        .frame(width: 75, height: 75)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.white)
+                                .shadow(color: Color(hue: 1.0, saturation: 0.0, brightness: 0.918), radius: 10, x: 0, y: 2)
+                        )
+                        .onTapGesture {
+                            self.selectedDate = date
+                        }
+                    }
+                }
+            }
+            
+            // You can use the selectedDate for fetching workouts
+            let workoutsToday = user.workoutsOnDate(date: selectedDate)
+            ForEach(workoutsToday, id: \.self) { workout in
+                ScrollView{
+                    VStack(){
+                        ScrollView{
                             ForEach(workout.exercises, id: \.self) { exercise in
                                 VStack(){
                                     Spacer()
@@ -72,6 +98,8 @@ struct DailyWorkoutSummaryView: View {
                             .shadow(color: Color(hue: 1.0, saturation: 0.0, brightness: 0.918), radius: 10, x: 0, y: 2)
                     )
                 }
+            }
+        }
     }
 }
 

@@ -21,7 +21,7 @@ struct PRHistoryView: View {
                     Spacer()
                         .frame(width:80)
                     HStack(){
-                        NavigationLink(destination: ProfileEditView()){
+                        NavigationLink(destination: DailyWorkoutSummaryView()){
                             Text("Daily")
                                 .minimumScaleFactor(0.5)
                                 .padding(.all, 10.0)

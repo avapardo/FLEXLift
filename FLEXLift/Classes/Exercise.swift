@@ -35,4 +35,21 @@ class Exercise: ObservableObject, Hashable {
                    lhs.repEntries == rhs.repEntries &&
                    lhs.weight == rhs.weight
     }
+    
+    func addRepEntries(repStartLocs: [Int], entries: [ENTRY]){
+        // Iterate over each start location
+            for (index, startLoc) in repStartLocs.enumerated() {
+                // Determine the end index for this range
+                let endLoc = index < repStartLocs.count - 1 ? repStartLocs[index + 1] : entries.count
+                // Ensure indices are within bounds
+                guard startLoc < entries.count, endLoc <= entries.count else {
+                    continue
+                }
+                // Create a subarray for this rep
+                let repEntriesSlice = Array(entries[startLoc..<endLoc])
+                // Create a Rep object and add to repEntries
+                let rep = Rep(repData: repEntriesSlice, mass: Double(weight))
+                repEntries.append(rep)
+            }
+    }
 }

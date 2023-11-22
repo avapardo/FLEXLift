@@ -100,6 +100,7 @@ struct EndExerciseView: View {
                        let lastExercise = lastWorkout.exercises.last {
                         lastExercise.totalReps = bluetoothManager.REP_COUNT
                         user.addWorkoutToContainer(exercise: lastExercise)
+                        lastExercise.addRepEntries(repStartLocs: bluetoothManager.repStartLocs, entries: bluetoothManager.entries)
                     }
                     bluetoothManager.resetBluetooth()
                     user.inWorkout = false
