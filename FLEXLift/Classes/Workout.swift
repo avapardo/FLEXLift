@@ -17,7 +17,7 @@ class Workout: ObservableObject, Hashable{
     }
     
     static func == (lhs: Workout, rhs: Workout) -> Bool {
-            return lhs.exercises == rhs.exercises
+            return lhs.exercises == rhs.exercises && lhs.date == rhs.date
     }
 
     func hash(into hasher: inout Hasher) {

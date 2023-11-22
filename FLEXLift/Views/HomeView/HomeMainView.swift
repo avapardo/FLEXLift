@@ -19,6 +19,8 @@ struct HomeMainView: View {
                 Spacer(minLength: 150)
                 TodaysSummary()
                 Spacer()
+                WorkoutTimePerDayChartView()
+                Spacer()
                 WeekAvgView()
                 Spacer()
                 PRHistoryView()

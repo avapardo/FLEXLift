@@ -35,6 +35,10 @@
 		B73BFC742B0BB6F300D03F10 /* WeekAvgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73BFC732B0BB6F300D03F10 /* WeekAvgView.swift */; };
 		B73BFC762B0BB83000D03F10 /* PRHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73BFC752B0BB83000D03F10 /* PRHistoryView.swift */; };
 		B73BFC782B0BBC7800D03F10 /* WorkoutTimePerDayChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73BFC772B0BBC7800D03F10 /* WorkoutTimePerDayChartView.swift */; };
+		B7D9931B2B0D06EE00F5CAB8 /* DailyWorkoutSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D9931A2B0D06EE00F5CAB8 /* DailyWorkoutSummaryView.swift */; };
+		B7D9931D2B0D071200F5CAB8 /* WorkoutByTypeSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D9931C2B0D071200F5CAB8 /* WorkoutByTypeSummaryView.swift */; };
+		B7D9931F2B0D072A00F5CAB8 /* PersonalRecordByTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D9931E2B0D072A00F5CAB8 /* PersonalRecordByTypeView.swift */; };
+		B7D993212B0D07C100F5CAB8 /* RepDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D993202B0D07C100F5CAB8 /* RepDetailedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +91,10 @@
 		B73BFC732B0BB6F300D03F10 /* WeekAvgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekAvgView.swift; sourceTree = "<group>"; };
 		B73BFC752B0BB83000D03F10 /* PRHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRHistoryView.swift; sourceTree = "<group>"; };
 		B73BFC772B0BBC7800D03F10 /* WorkoutTimePerDayChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTimePerDayChartView.swift; sourceTree = "<group>"; };
+		B7D9931A2B0D06EE00F5CAB8 /* DailyWorkoutSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWorkoutSummaryView.swift; sourceTree = "<group>"; };
+		B7D9931C2B0D071200F5CAB8 /* WorkoutByTypeSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutByTypeSummaryView.swift; sourceTree = "<group>"; };
+		B7D9931E2B0D072A00F5CAB8 /* PersonalRecordByTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRecordByTypeView.swift; sourceTree = "<group>"; };
+		B7D993202B0D07C100F5CAB8 /* RepDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepDetailedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +199,10 @@
 				B73BFC732B0BB6F300D03F10 /* WeekAvgView.swift */,
 				B73BFC752B0BB83000D03F10 /* PRHistoryView.swift */,
 				B73BFC772B0BBC7800D03F10 /* WorkoutTimePerDayChartView.swift */,
+				B7D9931A2B0D06EE00F5CAB8 /* DailyWorkoutSummaryView.swift */,
+				B7D9931C2B0D071200F5CAB8 /* WorkoutByTypeSummaryView.swift */,
+				B7D9931E2B0D072A00F5CAB8 /* PersonalRecordByTypeView.swift */,
+				B7D993202B0D07C100F5CAB8 /* RepDetailedView.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -366,6 +378,7 @@
 				B73BFC742B0BB6F300D03F10 /* WeekAvgView.swift in Sources */,
 				B70E63AC2B07CAAA00872F45 /* Entry.swift in Sources */,
 				B70F1E2F2AFC1052005C43B2 /* BeginWorkoutView.swift in Sources */,
+				B7D9931F2B0D072A00F5CAB8 /* PersonalRecordByTypeView.swift in Sources */,
 				B70F1E232AFB4970005C43B2 /* UserProfileView.swift in Sources */,
 				B70F1E2A2AFB5F23005C43B2 /* WorkoutMainView.swift in Sources */,
 				B70F1E1F2AFB494E005C43B2 /* SettingsView.swift in Sources */,
@@ -379,12 +392,15 @@
 				B73BFC722B0AFF0E00D03F10 /* TodaysSummary.swift in Sources */,
 				B70E63AA2B07C10000872F45 /* Rep.swift in Sources */,
 				B73BFC762B0BB83000D03F10 /* PRHistoryView.swift in Sources */,
+				B7D993212B0D07C100F5CAB8 /* RepDetailedView.swift in Sources */,
 				B70F1E212AFB495D005C43B2 /* ProfileEditView.swift in Sources */,
 				B70E63A22B07BA3600872F45 /* ExerciseView.swift in Sources */,
 				B70F1DEA2AFB47C9005C43B2 /* FLEXLiftApp.swift in Sources */,
 				B70E63A62B07BE7E00872F45 /* WorkoutSummaryView.swift in Sources */,
 				B70E63B02B07D21500872F45 /* Workout.swift in Sources */,
+				B7D9931D2B0D071200F5CAB8 /* WorkoutByTypeSummaryView.swift in Sources */,
 				B70E63AE2B07CC4F00872F45 /* Exercise.swift in Sources */,
+				B7D9931B2B0D06EE00F5CAB8 /* DailyWorkoutSummaryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -31,7 +31,7 @@ struct PRHistoryView: View {
                         .environmentObject(user)
                     }
                     HStack(){
-                        NavigationLink(destination: ProfileEditView()){
+                        NavigationLink(destination: WorkoutByTypeSummaryView()){
                             Text("Exercise")
                                 .minimumScaleFactor(0.5)
                                 .padding(.all, 10.0)
@@ -50,7 +50,7 @@ struct PRHistoryView: View {
                     Spacer()
                         .frame(width:110)
                     HStack(){
-                        NavigationLink(destination: ProfileEditView()){
+                        NavigationLink(destination: PersonalRecordByTypeView()){
                             Text("PR")
                                 .minimumScaleFactor(0.5)
                                 .padding(.all, 10.0)

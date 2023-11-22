@@ -75,7 +75,7 @@ struct ExerciseView: View {
             HStack(){
                 if(startStopButton){
                     Button("Pause") {
-                        bluetoothManager.sendText("Start")
+                        bluetoothManager.sendText("Stop")
                         startStopButton = false
                         user.pauseTimer()
                     }
@@ -89,7 +89,7 @@ struct ExerciseView: View {
                     )}
                 else{
                     Button("Resume") {
-                        bluetoothManager.sendText("Stop")
+                        bluetoothManager.sendText("Start")
                         startStopButton = true
                         user.startTimer()
                     }

@@ -28,14 +28,14 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
     @Published var isConnected: Bool = false
     @Published var foundPeripherals: [CBPeripheral] = []
     @Published var REP_COUNT: Int = -1
-    @Published var FUNCTIONAL_SENSOR = true
+    private var FUNCTIONAL_SENSOR = true
     @Published var entries: [ENTRY] = []
-    @Published var REP_WIDTH = -1
-    @Published var START_IDX = -1
-    @Published var IN_SESSION = false
-    @Published var FIRST = true
-    @Published var NO_MOVEMENT_DETECTED = false
-    @Published var filteredLocs: [Int] = []
+    private var REP_WIDTH = -1
+    private var START_IDX = -1
+    private var IN_SESSION = false
+    private var FIRST = true
+    private var NO_MOVEMENT_DETECTED = false
+    @Published var repStartLocs: [Int] = []
     
     // Core Bluetooth properties
     private var centralManager: CBCentralManager?
@@ -43,7 +43,7 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
     private var myCharacteristic: CBCharacteristic?
     
     // Define your service and characteristic UUIDs
-    let serviceUUID = CBUUID(string: "ab0828b1-198e-4351-b779-901fa0e0371e")
+    let serviceUUID = CBUUID(string: "ab0828b1-198e-4351-b779-901fa0e03710")
     
     override init() {
         super.init()
@@ -65,7 +65,7 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
         self.IN_SESSION = false
         self.FIRST = true
         self.NO_MOVEMENT_DETECTED = false
-        self.filteredLocs = []
+        self.repStartLocs = []
     }
     
     func calculateRepCount() {
@@ -84,7 +84,7 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
                 }
             }
             else if (self.FIRST) {
-                (self.REP_COUNT, self.REP_WIDTH, self.START_IDX, self.NO_MOVEMENT_DETECTED) = self.getRepcountSetup(entries: self.entries, lagWidth: LAG_WIDTH)
+                (self.REP_COUNT, self.REP_WIDTH, self.START_IDX, self.NO_MOVEMENT_DETECTED) = self.getRepCountSetup(entries: self.entries, lagWidth: LAG_WIDTH)
                 if self.NO_MOVEMENT_DETECTED {
                     print("No movement detected! Resetting...")
                     self.entries.removeAll()
@@ -95,7 +95,7 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
             }
             else {
                 if self.entries.count >= self.START_IDX + self.REP_WIDTH {
-                    self.REP_COUNT = max(self.REP_COUNT, self.getRepCount(entries: self.entries, startIdx: self.START_IDX, repWidth: self.REP_WIDTH))
+                        self.REP_COUNT = max(self.REP_COUNT, self.getRepCount(entries: self.entries, startIdx: self.START_IDX, repWidth: self.REP_WIDTH))
                 }
             }
             
@@ -320,44 +320,7 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
         return filteredPeaks
     }
     
-    func parseCSVLine(_ line: String) -> ENTRY? {
-        let components = line.components(separatedBy: ",")
-        guard components.count == 2,
-              let timestamp = Double(components[0]),
-              let value = Double(components[1]) else {
-            return nil
-        }
-        return ENTRY(timestamp: timestamp, value: value)
-    }
-    
-    func readCSVFile(_ filePath: String) -> [ENTRY] {
-        var entries = [ENTRY]()
-        do {
-            let fileHandle = try FileHandle(forReadingFrom: URL(fileURLWithPath: filePath))
-            defer {
-                fileHandle.closeFile()
-            }
-            let data = fileHandle.readDataToEndOfFile()
-            if let csvString = String(data: data, encoding: .utf8) {
-                let lines = csvString.components(separatedBy: .newlines)
-                for line in lines {
-                    if let entry = parseCSVLine(line) {
-                        entries.append(entry)
-                    }
-                }
-            }
-        } catch {
-            print("warning! error reading the CSV file: \(error)")
-        }
-        if let firstTimestamp = entries.first?.timestamp {
-            entries = entries.map { entry in
-                return ENTRY(timestamp: entry.timestamp - firstTimestamp, value: entry.value)
-            }
-        }
-        return entries
-    }
-    
-    func getRepcountSetup(entries: [ENTRY], lagWidth: Int) -> (repCount: Int, repWidth: Int, startIdx: Int, noMovementDetected: Bool) {
+    func getRepCountSetup(entries: [ENTRY], lagWidth: Int) -> (repCount: Int, repWidth: Int, startIdx: Int, noMovementDetected: Bool) {
         var repCount = 0
         var repWidth = 0
         var startIdx = 0
@@ -404,6 +367,7 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
         else if repCount == 1 {
             repWidth = max(SAMPLE_RATE * 2, Int(ceil(Double(lagWidth/2))))
             startIdx = max(0, (locs[0] - repWidth/2))
+            repStartLocs = [startIdx]
         }
         else {
             if repCount > 3 {
@@ -425,11 +389,14 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
             let averageDistance = Double(locsDifferences.reduce(0, +)) / Double(locsDifferences.count)
             repWidth = max(SAMPLE_RATE * 2, Int(ceil(averageDistance)))
             startIdx = max(0, (locs[0] - repWidth/2))
+            repStartLocs = locs.map { max($0 - repWidth/2, 0) }
         }
         
         print("repCount = \(repCount), repWidth = \(repWidth), startIdx = \(startIdx)")
         return (repCount, repWidth, startIdx, false)
     }
+    
+    // --------------------------------------------------------------------------------------------------------------------------------------- modified getRepCount function
     
     // call periodically after entries.count exceeds a certain threshold
     func getRepCount(entries: [ENTRY], startIdx: Int, repWidth: Int) -> Int {
@@ -441,7 +408,7 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
         let peaks = findPeaks(in: acSensorData, minPeakHeight: acMinPeakVal, minPeakDistance: SAMPLE_RATE)
         
         if peaks.isEmpty {
-            print("empty")
+            print("uh oh. you should not see this message")
             return 0
         }
         
@@ -474,10 +441,12 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
         let largeProminenceIdx = vals.enumerated().filter { $0.element - min(rminimaSel[$0.offset], lminimaSel[$0.offset]) > PROMINENCE }.map { $0.offset }
         
         // Keep the good peaks
-        filteredLocs = largeProminenceIdx.map { locs[$0] }
-        let repCount = filteredLocs.count
-        return repCount
+        repStartLocs = largeProminenceIdx.map { locs[$0] }
+        for i in 0..<repStartLocs.count {
+            repStartLocs[i] += startIdx
+        }
+        repStartLocs = [startIdx] + repStartLocs
+        return repStartLocs.count
     }
-    // ----------------------------------------------------------------------------------- end
     
 }

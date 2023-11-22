@@ -76,10 +76,11 @@ struct EndExerciseView: View {
             HStack(){
                     Button("Add Exercise") {
                         if let lastWorkout = user.workouts.last,
-                                   let lastExercise = lastWorkout.exercises.last {
+                           let lastExercise = lastWorkout.exercises.last {
                             lastExercise.totalReps = bluetoothManager.REP_COUNT
-                            bluetoothManager.resetBluetooth()
-                            }
+                            user.addWorkoutToContainer(exercise: lastExercise)
+                        }
+                        bluetoothManager.resetBluetooth()
                         user.inWorkout = true
                         user.beginWorkout = true
                         user.duringExercise = false
@@ -96,10 +97,11 @@ struct EndExerciseView: View {
                     )
                 Button("End Workout") {
                     if let lastWorkout = user.workouts.last,
-                               let lastExercise = lastWorkout.exercises.last {
+                       let lastExercise = lastWorkout.exercises.last {
                         lastExercise.totalReps = bluetoothManager.REP_COUNT
-                        bluetoothManager.resetBluetooth()
+                        user.addWorkoutToContainer(exercise: lastExercise)
                     }
+                    bluetoothManager.resetBluetooth()
                     user.inWorkout = false
                     user.beginWorkout = false
                     user.duringExercise = false
