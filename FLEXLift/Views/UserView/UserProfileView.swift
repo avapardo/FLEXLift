@@ -78,7 +78,7 @@ struct UserProfileView: View {
                             .minimumScaleFactor(0.5)
                             .lineLimit(1)
                             .frame(width: 45)
-                        Text("\(user.weight)")
+                        Text("\(user.weight) lb")
                             .minimumScaleFactor(0.5)
                             .lineLimit(1)
                             .frame(width: 50)

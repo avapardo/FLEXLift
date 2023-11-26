@@ -38,7 +38,7 @@ struct WeekAvgView: View {
                     .lineLimit(2)
                     .padding(.horizontal, 3)
 
-                Text("\(user.averageDailyWorkoutTime(), specifier: "%.0f") sec")
+                Text(user.formatTime(seconds: user.averageDailyWorkoutTime()))
                     .minimumScaleFactor(0.5)
                     .lineLimit(1)
                     .frame(width: 50)
@@ -78,9 +78,8 @@ struct WeekAvgView: View {
                     .frame(width: 45)
                 Text(user.favoriteExercise())
                     .minimumScaleFactor(0.5)
-                    .lineLimit(1)
+                    .lineLimit(2)
                     .frame(width: 50)
-                
             }
             .frame(width:75, height: 75)
             .background(
@@ -90,6 +89,8 @@ struct WeekAvgView: View {
             )
             Spacer()
         }
+        .frame(height:80)
+        .fixedSize(horizontal: false, vertical: true)
     }
 }
 

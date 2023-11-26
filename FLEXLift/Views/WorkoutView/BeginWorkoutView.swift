@@ -11,8 +11,8 @@ struct BeginWorkoutView: View {
     @EnvironmentObject var bluetoothManager: BluetoothManager
     @EnvironmentObject var user: User
     @State private var currentSelection: String = "Select Exercise"
-    @State private var startStopButton: Bool = true
     @State private var weight: String = ""
+    @State private var weightValid: Bool = false
     var body: some View {
         VStack {
             Spacer()
@@ -95,33 +95,33 @@ struct BeginWorkoutView: View {
             }
             Spacer()
             HStack(){
-                TextField("Enter Weight", text: $weight)
-                .padding(10)
-                .lineLimit(1)
-                .minimumScaleFactor(0.5)
-                .overlay {
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.accentColor, lineWidth: 2)
-                        .frame(width: 150.0, height: 35.0)
-                }
-                .padding(.horizontal)
-                .frame(width: 150, height: 50.0)
+                TextField("Enter weight in lb", text: $weight)
+                    .padding(10)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.accentColor, lineWidth: 2)
+                            .frame(width: 150.0, height: 35.0)
+                    }
+                    .padding(.horizontal)
+                    .frame(width: 150, height: 50.0)
             }
             Spacer()
-            if(startStopButton){
+            if(currentSelection != "Select Exercise" && weight != ""){
                 Button("Start") {
                     bluetoothManager.sendText("Start")
                     var weightVal = 0
                     if let weightValue = Int(weight) {
                         weightVal = weightValue
+                        weightValid = true
                     } else {
-                        print("'\(weight)' is not a valid integer")
+                        weightValid = false
                     }
                     if let lastWorkout = user.workouts.last {
                         lastWorkout.exercises.append(Exercise(exerciseType: currentSelection, weight: weightVal))
                     }
                     user.inWorkout = true
-                    startStopButton = false
                     user.beginWorkout = false
                     user.duringExercise = true
                     user.endExercise = false
@@ -136,6 +136,16 @@ struct BeginWorkoutView: View {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color("AccentColor"))
                 )}
+            else{
+                Text("Please fill in all details")
+                    .padding(.all, 10)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
+                    .foregroundColor(.white)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.gray)
+                    )}
             Spacer()
         }
         .frame(width:300, height:300)

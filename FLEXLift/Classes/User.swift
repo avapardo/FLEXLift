@@ -9,8 +9,8 @@ import Foundation
 
 class User: ObservableObject{
     @Published var name: String
-    @Published var height: Int
-    @Published var weight: Int
+    @Published var height: String
+    @Published var weight: String
     @Published var gender: String
     @Published var age: Int
     @Published var profileSetup: Bool
@@ -21,7 +21,7 @@ class User: ObservableObject{
     @Published var endExercise: Bool
     @Published var workoutSummary: Bool
     @Published var isTimerRunning: Bool
-    @Published var elapsedTime: Double
+    @Published var elapsedTime: Int
     @Published var inWorkout: Bool
     @Published var barbellLunge: [Exercise]
     @Published var barbellSquat: [Exercise]
@@ -37,8 +37,8 @@ class User: ObservableObject{
     
     init(){
         name = "Enter name"
-        height = 0
-        weight = 0
+        height = "Enter height"
+        weight = "Enter weight"
         gender = "Select gender"
         age = 0
         profileSetup = false
@@ -49,7 +49,7 @@ class User: ObservableObject{
         endExercise = false
         workoutSummary = false
         isTimerRunning = false
-        elapsedTime = 0.0
+        elapsedTime = 0
         inWorkout = false
         barbellLunge = []
         barbellSquat = []
@@ -83,6 +83,20 @@ class User: ObservableObject{
         elapsedTime = 0
     }
     
+    func formatTime(seconds: Int) -> String {
+        let hours = seconds / 3600
+        let minutes = (seconds % 3600) / 60
+        let remainingSeconds = seconds % 60
+
+        if hours > 0 {
+            return "\(hours):\(minutes):\(remainingSeconds)"
+        } else if minutes > 0 {
+            return "00:\(minutes):\(remainingSeconds)"
+        } else {
+            return "00:00:\(remainingSeconds)"
+        }
+    }
+    
     func totalExercisesToday() -> Int {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yy"
@@ -90,7 +104,7 @@ class User: ObservableObject{
         return workouts.filter { $0.date == today }.flatMap { $0.exercises }.count
     }
     
-    func totalWorkoutTimeToday() -> Double {
+    func totalWorkoutTimeToday() -> Int {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yy"
         let today = dateFormatter.string(from: Foundation.Date())
@@ -114,10 +128,10 @@ class User: ObservableObject{
         return Double(totalExercises) / Double(groupedByDate.count)
     }
     
-    func averageDailyWorkoutTime() -> Double {
+    func averageDailyWorkoutTime() -> Int {
         let groupedByDate = Dictionary(grouping: workouts, by: { $0.date })
         let totalWorkoutTime = groupedByDate.values.reduce(0) { $0 + $1.flatMap { $0.exercises }.reduce(0) { $0 + $1.duration } }
-        return totalWorkoutTime / Double(groupedByDate.count)
+        return totalWorkoutTime / Int(groupedByDate.count)
     }
     
     func averageDailyReps() -> Double {
@@ -137,26 +151,29 @@ class User: ObservableObject{
         }
     }
     
-    func workoutTimeForPastWeek() -> [String: Double] {
-        var dataPoints = [String: Double]()
-        
+    func workoutTimeForPastWeek() -> [String: Int] {
+        var dataPoints = [String: Int]()
+
+        let calendar = Calendar.current
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yy"
-        
-        let calendar = Calendar.current
-        // Ensure we start from the beginning of the week (Monday)
-        guard let startOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: Date())) else { return dataPoints }
-        
+
+        let dayFormatter = DateFormatter()
+        dayFormatter.dateFormat = "EEE" // For day of the week
+
+        // Calculate dates for the past week
         for dayOffset in 0..<7 {
-            guard let date = calendar.date(byAdding: .day, value: dayOffset, to: startOfWeek) else { continue }
+            guard let date = calendar.date(byAdding: .day, value: -dayOffset, to: Date()) else { continue }
             let dateString = dateFormatter.string(from: date)
-            
+            let dayOfWeek = dayFormatter.string(from: date)
+
             let totalWorkoutTime = workouts.filter { $0.date == dateString }
                 .flatMap { $0.exercises }
                 .reduce(0) { $0 + $1.duration }
-            dataPoints[dateString] = totalWorkoutTime
+            
+            dataPoints[dayOfWeek] = totalWorkoutTime
         }
-        
+
         return dataPoints
     }
     

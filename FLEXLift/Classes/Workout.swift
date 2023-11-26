@@ -10,18 +10,20 @@ import Foundation
 class Workout: ObservableObject, Hashable{
     @Published var exercises: [Exercise]
     @Published var date: String
+    let id: UUID
 
     init(){
         exercises = []
         date = TodaysDate()
+        id = UUID()
     }
     
     static func == (lhs: Workout, rhs: Workout) -> Bool {
-            return lhs.exercises == rhs.exercises && lhs.date == rhs.date
+            return lhs.id == rhs.id
     }
 
     func hash(into hasher: inout Hasher) {
-            hasher.combine(exercises)
+            hasher.combine(id)
     }
     
 }

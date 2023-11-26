@@ -10,62 +10,71 @@ import SwiftUI
 struct WorkoutTimePerDayChartView: View {
     @EnvironmentObject var user: User
     
-    let dayFormatter: DateFormatter = {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "E" // Format for short day of the week, e.g., "Mon"
-            return formatter
-    }()
-    
-    let inputDateFormatter: DateFormatter = {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "Your input date format here" // Adjust this format to match your date strings
-            return formatter
-        }()
-    
+    let daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+
     var body: some View {
-        Text("This Week's Workout Time")
-        GeometryReader { geometry in
-            let dataPoints = user.workoutTimeForPastWeek()
-            let sortedDates = dataPoints.keys.sorted() // To ensure the dates are in order
-            // let maxValue = (dataPoints.values.max() ?? 1) // Avoid division by zero
-            let maxValue = 30
-            
-            Path { path in
-                for (index, date) in sortedDates.enumerated() {
-                    let workoutTime = dataPoints[date, default: 0]
-                    let xPosition = geometry.size.width * CGFloat(index) / CGFloat(sortedDates.count - 1)
-                    let yPosition = geometry.size.height * (1 - CGFloat(workoutTime) / CGFloat(maxValue))
-                    
-                    if index == 0 {
-                        path.move(to: CGPoint(x: xPosition, y: yPosition))
-                    } else {
-                        path.addLine(to: CGPoint(x: xPosition, y: yPosition))
-                    }
+        VStack {
+            Text("This Week's Workout Time")
+                .font(.headline)
+
+            GeometryReader { geometry in
+                let dataPoints = user.workoutTimeForPastWeek()
+                let maxValue = max((dataPoints.values.max() ?? 0), 1)
+                let segmentWidth = geometry.size.width / CGFloat(daysOfWeek.count)
+                let barWidth = segmentWidth * 0.7 // 70% of the segment width
+
+                // Drawing the bars
+                ForEach(daysOfWeek.indices, id: \.self) { index in
+                    let day = daysOfWeek[index]
+                    let workoutTime = dataPoints[day, default: 0]
+                    let xPosition = segmentWidth * CGFloat(index) + (segmentWidth - barWidth) / 2
+                    let barHeight = geometry.size.height * (CGFloat(workoutTime) / CGFloat(maxValue))
+
+                    Rectangle()
+                        .fill(Color.accentColor)
+                        .frame(width: barWidth, height: barHeight)
+                        .offset(x: xPosition, y: geometry.size.height - barHeight)
                 }
+
+                // X-Axis Labels
+                ForEach(daysOfWeek.indices, id: \.self) { index in
+                    let xPosition = segmentWidth * CGFloat(index) + segmentWidth / 2
+
+                    Text(daysOfWeek[index])
+                        .position(x: xPosition, y: geometry.size.height + 20)
+                        .font(.caption)
+                }
+
+                // Y-Axis Labels
+                let yAxisLabelCount = maxValue <= 15 ? 5 : 3
+                let yAxisInterval = (maxValue / yAxisLabelCount)
+
+                // Y-Axis Labels
+                ForEach(0...yAxisLabelCount, id: \.self) { i in // Include the top label
+                    let yLabel = i * yAxisInterval
+                    let yPosition = geometry.size.height * (1 - CGFloat(yLabel) / CGFloat(maxValue))
+
+                    Text("\(yLabel) ")
+                        .position(x: geometry.size.width * -0.05, y: yPosition)
+                        .font(.caption)
+                }
+
+                // Drawing the axes
+                Path { path in
+                    // Vertical line
+                    path.move(to: CGPoint(x: 0, y: 0))
+                    path.addLine(to: CGPoint(x: 0, y: geometry.size.height))
+                    
+                    // Horizontal line
+                    path.move(to: CGPoint(x: 0, y: geometry.size.height))
+                    path.addLine(to: CGPoint(x: geometry.size.width, y: geometry.size.height))
+                }
+                .stroke(Color.black, lineWidth: 1)
             }
-            .stroke(Color.accentColor, lineWidth: 2)
-            
-            ForEach(sortedDates.indices, id: \.self) { index in
-                                let dateString = sortedDates[index]
-                                if let date = inputDateFormatter.date(from: dateString) {
-                                    let day = dayFormatter.string(from: date)
-                                    let xPosition = geometry.size.width * CGFloat(index) / CGFloat(sortedDates.count - 1)
-
-                                    Text(day)
-                                        .position(x: xPosition, y: geometry.size.height + 20)
-                                }
-                            }
-            
-            ForEach(0...3, id: \.self) { i in
-                                let yLabel = i * 10
-                                let yPosition = geometry.size.height * (1 - CGFloat(yLabel) / CGFloat(maxValue))
-
-                                Text("\(yLabel)")
-                                    .position(x: -15, y: yPosition)
-                            }
-            
+            .frame(width: 280, height: 150)
+            .fixedSize(horizontal: true, vertical: true)
         }
-        .frame(width: 280, height: 180)
+        .frame(width: 280, height: 150)
     }
 }
 

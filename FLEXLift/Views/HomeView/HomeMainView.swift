@@ -13,20 +13,21 @@ struct HomeMainView: View {
     var body: some View {
         NavigationView {
             VStack() {
-                Text("FLEX Lift")
-                    .font(.largeTitle)
-                    
-                Spacer(minLength: 150)
+                Spacer()
                 TodaysSummary()
+                    .frame(height: 150)
                 Spacer()
                 WorkoutTimePerDayChartView()
+                    .frame(height: 150)
+                Spacer()
                 Spacer()
                 WeekAvgView()
+                    .frame(height: 80)
                 Spacer()
                 PRHistoryView()
-                Spacer(minLength:170)
+                    .frame(height: 150)
+                Spacer()
             }
-            .fixedSize(horizontal: true, vertical: true)
         }
             .environmentObject(user)
     }

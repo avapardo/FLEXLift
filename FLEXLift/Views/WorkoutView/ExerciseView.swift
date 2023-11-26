@@ -41,7 +41,7 @@ struct ExerciseView: View {
                         .font(.headline)
                         .lineLimit(1)
                         .minimumScaleFactor(0.75)
-                    Text("\(user.elapsedTime, specifier: "%.0f") sec")
+                    Text(user.formatTime(seconds:user.elapsedTime))
                 }
                 .frame(width:75, height: 75)
                 .background(

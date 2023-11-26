@@ -10,18 +10,20 @@ import Foundation
 class Rep: ObservableObject, Hashable{
     @Published var repData: [ENTRY]
     @Published var mass: Double
+    let id: UUID
 
     init(repData: [ENTRY], mass: Double){
         self.repData = repData
         self.mass = mass
+        id = UUID()
     }
     
     static func == (lhs: Rep, rhs: Rep) -> Bool {
-            return lhs.repData == rhs.repData
+        return lhs.id == rhs.id
     }
 
     func hash(into hasher: inout Hasher) {
-            hasher.combine(repData)
+            hasher.combine(id)
     }
     
     func calculateCurves() -> (force: [Double], velocity: [Double]) {

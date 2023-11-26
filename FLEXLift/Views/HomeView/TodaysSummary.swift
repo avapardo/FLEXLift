@@ -54,7 +54,7 @@ struct TodaysSummary: View {
                             .lineLimit(2)
                             .padding(.horizontal, 3)
 
-                        Text("\(user.totalWorkoutTimeToday(), specifier: "%.0f") sec")
+                        Text(user.formatTime(seconds:user.totalWorkoutTimeToday()))
                             .minimumScaleFactor(0.5)
                             .lineLimit(1)
                             .frame(width: 50)

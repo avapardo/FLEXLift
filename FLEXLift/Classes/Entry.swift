@@ -10,19 +10,21 @@ import Foundation
 class ENTRY: ObservableObject, Hashable{
     @Published var timestamp: Double
     @Published var value: Double
+    let id: UUID
+
     
     init(timestamp: Double, value: Double){
         self.timestamp = timestamp
         self.value = value
+        id = UUID()
     }
     
     static func == (lhs: ENTRY, rhs: ENTRY) -> Bool {
-        return lhs.timestamp == rhs.timestamp && lhs.value == rhs.value
+        return lhs.id == rhs.id
     }
 
     func hash(into hasher: inout Hasher) {
-        hasher.combine(timestamp)
-        hasher.combine(value)
+        hasher.combine(id)
     }
     
 }

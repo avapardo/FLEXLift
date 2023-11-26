@@ -47,7 +47,7 @@ struct EndExerciseView: View {
                             .minimumScaleFactor(0.75)
                         if let lastWorkout = user.workouts.last,
                                    let lastExercise = lastWorkout.exercises.last {
-                            Text("\(lastExercise.duration, specifier: "%.0f") sec")
+                            Text(user.formatTime(seconds:lastExercise.duration))
                                 } else {
                                     Text("No entry")
                                 }
@@ -79,6 +79,7 @@ struct EndExerciseView: View {
                            let lastExercise = lastWorkout.exercises.last {
                             lastExercise.totalReps = bluetoothManager.REP_COUNT
                             user.addWorkoutToContainer(exercise: lastExercise)
+                            lastExercise.addRepEntries(repStartLocs: bluetoothManager.repStartLocs, entries: bluetoothManager.entries)
                         }
                         bluetoothManager.resetBluetooth()
                         user.inWorkout = true

@@ -20,7 +20,6 @@ struct ProfileEditView: View {
     var body: some View {
         Text("FLEX Lift")
             .font(.largeTitle)
-            .padding(.all)
         Spacer()
             .frame(height:150)
         VStack(spacing:30) {
@@ -84,7 +83,7 @@ struct ProfileEditView: View {
                 .frame(width: 320, height: 50.0)
             }
             HStack(){
-                TextField("Weight", text: $weight)
+                TextField("Weight: in lb", text: $weight)
                 .padding(10)
                 .overlay {
                     RoundedRectangle(cornerRadius: 10)
@@ -95,7 +94,7 @@ struct ProfileEditView: View {
                 .frame(width: 320, height: 50.0)
             }
             HStack(){
-                TextField("Height", text: $height)
+                TextField("Height: Feet\'Inches\'\'", text: $height)
                 .padding(10)
                 .overlay {
                     RoundedRectangle(cornerRadius: 10)
@@ -114,24 +113,16 @@ struct ProfileEditView: View {
                             .frame(width: 150.0, height: 50)
                     }
                     .simultaneousGesture(TapGesture().onEnded {
-                        user.age = calculateAge(fromBirthdate: birthday) ?? 0
-                        user.name = firstName
-                        user.gender = gender
-                        if let heightValue = Int(height) {
-                            // Successfully converted String to Int
-                            user.height = heightValue
-                            print("The integer value is \(user.height)")
-                        } else {
-                            // The conversion failed because the string did not contain a valid integer
-                            print("'\(height)' is not a valid integer")
+                        user.age = calculateAge(fromBirthdate: birthday) ?? user.age
+                        if(firstName != ""){
+                            user.name = firstName
                         }
-                        if let weightValue = Int(weight) {
-                            // Successfully converted String to Int
-                            user.weight = weightValue
-                            print("The integer value is \(user.height)")
-                        } else {
-                            // The conversion failed because the string did not contain a valid integer
-                            print("'\(height)' is not a valid integer")
+                        user.gender = gender
+                        if(weight != ""){
+                            user.weight = weight
+                        }
+                        if(height != ""){
+                            user.height = height
                         }
                         user.profileSetup = true
                         isLinkActive = true
