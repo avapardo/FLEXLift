@@ -59,16 +59,6 @@ struct SettingsView: View {
                     }
                 }
             Spacer()
-                HStack(){
-                    Text("Battery")
-                        .foregroundColor(Color.gray)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.75)
-                    Spacer()
-                        .frame(width:200)
-                    Text("N/A")
-                }
-            Spacer()
         }
         .frame(width: 320, height:230)
         .fixedSize(horizontal: true, vertical: false)

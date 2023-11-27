@@ -52,3 +52,7 @@ struct RepDetailedView: View {
         }
     }
 }
+
+#Preview {
+    RepDetailedView(exercise: Exercise(exerciseType: "Bicep Curl", weight: 20))
+}

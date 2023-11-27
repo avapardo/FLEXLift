@@ -14,20 +14,19 @@ struct ContentView: View {
             HStack {
                 if(user.tabView){
                     TabView{
-                        HomeMainView()
+                        UserMainView()
                             .tabItem(){
-                                Image("ic-home")
+                                Image("ic-profile")
                             }
                         WorkoutMainView()
                             .tabItem(){
                                 Image("ic-activity-circle")
                             }
-                        UserMainView()
+                        HomeMainView()
                             .tabItem(){
-                                Image("ic-profile")
+                                Image("ic-home")
                             }
                     }
-                    
                     .environmentObject(user)
                     .environmentObject(bluetoothManager)
                 }
