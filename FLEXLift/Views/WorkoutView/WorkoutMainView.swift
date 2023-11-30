@@ -17,7 +17,7 @@ struct WorkoutMainView: View {
                 Text("FLEX Lift")
                     .font(.largeTitle)
                     
-                Spacer(minLength: 150)
+                Spacer(minLength: 100)
                 if(user.beginWorkout){
                     BeginWorkoutView()
                 }

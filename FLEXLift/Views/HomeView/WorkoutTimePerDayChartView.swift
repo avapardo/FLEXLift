@@ -71,10 +71,10 @@ struct WorkoutTimePerDayChartView: View {
                 }
                 .stroke(Color.black, lineWidth: 1)
             }
-            .frame(width: 280, height: 150)
+            .frame(width: 280, height: 120)
             .fixedSize(horizontal: true, vertical: true)
         }
-        .frame(width: 280, height: 150)
+        .frame(width: 280, height: 120)
     }
 }
 

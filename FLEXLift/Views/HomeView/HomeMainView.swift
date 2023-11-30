@@ -15,17 +15,13 @@ struct HomeMainView: View {
             VStack() {
                 Spacer()
                 TodaysSummary()
-                    .frame(height: 150)
                 Spacer()
                 WorkoutTimePerDayChartView()
-                    .frame(height: 150)
                 Spacer()
                 Spacer()
                 WeekAvgView()
-                    .frame(height: 80)
                 Spacer()
                 PRHistoryView()
-                    .frame(height: 150)
                 Spacer()
             }
         }

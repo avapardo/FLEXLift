@@ -48,4 +48,30 @@ class Exercise: ObservableObject, Hashable {
                 repEntries.append(rep)
             }
     }
+    
+    func calculateMaxPower() -> Double {
+        var maxPower = 0.0
+
+        for rep in repEntries {
+            let forces = rep.calculateForceOverTime()
+            let velocities = rep.calculateVelocityOverTime()
+
+            // Ensure that forces and velocities arrays are of the same length
+            let count = min(forces.count, velocities.count)
+            
+            // Calculate power for each point and find the maximum
+            for i in 0..<count {
+                let power = Double(forces[i]) * velocities[i]
+                maxPower = max(maxPower, power)
+            }
+        }
+
+        return maxPower
+    }
+    
+    func calculateOneRepMax() -> Double {
+        // Using the Epley formula
+        return Double(weight) * (1 + 0.0333 * Double(totalReps))
+    }
+
 }

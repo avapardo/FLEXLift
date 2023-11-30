@@ -58,6 +58,26 @@ struct SettingsView: View {
                         )
                     }
                 }
+            if(bluetoothManager.isConnected){
+                Spacer()
+                HStack(){
+                    Text("Battery")
+                        .foregroundColor(Color.gray)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.75)
+                    Spacer()
+                        .frame(width:200)
+                    if(bluetoothManager.battery_percentage >= 97){
+                        Text("97%")
+                    }
+                    else if(bluetoothManager.battery_percentage < 0){
+                        Text("97%")
+                    }
+                    else{
+                        Text("\(Int(bluetoothManager.battery_percentage))%")
+                    }
+                }
+            }
             Spacer()
         }
         .frame(width: 320, height:230)

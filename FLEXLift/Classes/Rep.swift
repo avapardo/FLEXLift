@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Charts 
 
 class Rep: ObservableObject, Hashable{
     @Published var repData: [ENTRY]
@@ -14,7 +15,7 @@ class Rep: ObservableObject, Hashable{
 
     init(repData: [ENTRY], mass: Double){
         self.repData = repData
-        self.mass = mass
+        self.mass = mass / 2.205
         id = UUID()
     }
     
@@ -26,22 +27,32 @@ class Rep: ObservableObject, Hashable{
             hasher.combine(id)
     }
     
-    func calculateCurves() -> (force: [Double], velocity: [Double]) {
-           var force = [Double]()
-           var velocity = [Double]()
+    func calculateVelocityOverTime() -> [Double] {
+            var velocityTimeArray: [Double] = []
+
            var currentVelocity = 0.0
 
            for i in 0..<repData.count {
                let accel = repData[i].value
-               force.append(accel * mass)
-
+               
                if i > 0 {
                    let timeStep = repData[i].timestamp - repData[i-1].timestamp
                    currentVelocity += timeStep * 0.5 * (repData[i-1].value + accel)
                }
-               velocity.append(currentVelocity)
+               velocityTimeArray.append(currentVelocity)
            }
 
-           return (force, velocity)
-       }
+           return velocityTimeArray
+    }
+    
+    func calculateForceOverTime() -> [Int] {
+        var forceTimeArray: [Int] = []
+
+        for data in repData {
+            let force = data.value * mass
+            forceTimeArray.append(Int(force))
+        }
+
+        return forceTimeArray
+    }
 }

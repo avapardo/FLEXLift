@@ -24,7 +24,7 @@ struct ExerciseView: View {
                             .lineLimit(1)
                             .minimumScaleFactor(0.75)
                     } else {
-                        Text("No entry")
+                        Text("Barbell Summary")
                             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     }
                 Spacer()
@@ -32,7 +32,7 @@ struct ExerciseView: View {
                            let lastExercise = lastWorkout.exercises.last {
                     Text("\(lastExercise.weight) lb")
                         } else {
-                            Text("No entry")
+                            Text("120 lb")
                         }
             Spacer()
             HStack(){
@@ -112,6 +112,9 @@ struct ExerciseView: View {
                     if let lastWorkout = user.workouts.last,
                                let lastExercise = lastWorkout.exercises.last {
                         lastExercise.duration = user.elapsedTime
+                        lastExercise.addRepEntries(repStartLocs: bluetoothManager.repStartLocs, entries: bluetoothManager.entries)
+                        user.addWorkoutToContainer(exercise: lastExercise)
+                        lastExercise.totalReps = bluetoothManager.REP_COUNT
                     }
                     user.resetTimer()
                 } 

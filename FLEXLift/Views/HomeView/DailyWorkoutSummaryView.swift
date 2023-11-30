@@ -74,7 +74,7 @@ struct DailyWorkoutSummaryView: View {
                                                                 .font(.headline)
                                                                 .lineLimit(1)
                                                                 .minimumScaleFactor(0.75)
-                                                            Text("\(exercise.duration, specifier: "%.0f") sec")
+                                                            Text(user.formatTime(seconds:exercise.duration))
                                                         }
                                                         .frame(width:75, height: 75)
                                                         .background(

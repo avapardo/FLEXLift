@@ -28,6 +28,7 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
     @Published var isConnected: Bool = false
     @Published var foundPeripherals: [CBPeripheral] = []
     @Published var REP_COUNT: Int = -1
+    @Published var battery_percentage: Float = 100
     private var FUNCTIONAL_SENSOR = true
     @Published var entries: [ENTRY] = []
     private var REP_WIDTH = -1
@@ -40,10 +41,14 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
     // Core Bluetooth properties
     private var centralManager: CBCentralManager?
     private var myPeripheral: CBPeripheral?
-    private var myCharacteristic: CBCharacteristic?
+    //private var myCharacteristic: CBCharacteristic?
+    var sensorCharacteristic: CBCharacteristic?
+    var batteryCharacteristic: CBCharacteristic?
     
     // Define your service and characteristic UUIDs
-    let serviceUUID = CBUUID(string: "ab0828b1-198e-4351-b779-901fa0e03710")
+    let serviceUUID = CBUUID(string: "ab0828b1-198e-4351-b779-901fa0e0371e")
+    let sensorUUID = CBUUID(string: "4ac8a682-9736-4e5d-932b-e9b314050490")
+    let batteryUUID = CBUUID(string: "1a70ee55-f504-40fe-b249-9609224a9310")
     
     override init() {
         super.init()
@@ -129,14 +134,10 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
     }
     
     func sendText(_ text: String) {
-        guard let peripheral = myPeripheral,
-              let characteristic = myCharacteristic,
-              let data = text.data(using: .utf8) else {
-            print("Peripheral or characteristic not found, or text could not be encoded.")
-            return
+        if (myPeripheral != nil && batteryCharacteristic != nil) {
+            let data = text.data(using: .utf8)
+            myPeripheral!.writeValue(data!,  for: batteryCharacteristic!, type: CBCharacteristicWriteType.withResponse)
         }
-        
-        peripheral.writeValue(data, for: characteristic, type: .withResponse)
     }
     
     func connectToPeripheral(_ peripheral: CBPeripheral) {
@@ -188,7 +189,8 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
         if peripheral == myPeripheral {
             isConnected = false
             myPeripheral = nil
-            myCharacteristic = nil
+            sensorCharacteristic = nil
+            batteryCharacteristic = nil
             print("Disconnected from " +  peripheral.name!)
         }
     }
@@ -215,13 +217,25 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         print("didDiscoverCharacteristicsFor")
         guard let characteristics = service.characteristics else { return }
-        
         for characteristic in characteristics {
-            if characteristic.properties.contains(.write) {
-                myCharacteristic = characteristic
-            }
-            if characteristic.properties.contains(.notify) {
-                peripheral.setNotifyValue(true, for: characteristic)
+            switch characteristic.uuid {
+            case CBUUID(string: "4ac8a682-9736-4e5d-932b-e9b314050490"):
+                sensorCharacteristic = characteristic
+                if characteristic.properties.contains(.notify) {
+                    peripheral.setNotifyValue(true, for: characteristic)
+                }
+
+            case CBUUID(string: "1a70ee55-f504-40fe-b249-9609224a9310"):
+                batteryCharacteristic = characteristic
+                if characteristic.properties.contains(.read) {
+                    peripheral.readValue(for: characteristic)
+                }
+                if characteristic.properties.contains(.notify) {
+                    peripheral.setNotifyValue(true, for: characteristic)
+                }
+                
+            default:
+                break
             }
         }
     }
@@ -229,15 +243,25 @@ class BluetoothManager: NSObject, ObservableObject, CBCentralManagerDelegate, CB
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         if let error = error {
-            print("Error discovering characteristics: \(error.localizedDescription)")
+            print("warning! error discovering characteristics: \(error.localizedDescription)")
             return
         }
-        // Get notification from ESP32
-        guard let data = characteristic.value else { return }
-        let floatValue = data.withUnsafeBytes { $0.load(as: Float.self) }
-        let timestamp = Date().currentTimeSec()
-        let newEntry = ENTRY(timestamp: timestamp, value: Double(floatValue))
-        entries.append(newEntry)
+        
+        if characteristic.uuid == CBUUID(string: "4ac8a682-9736-4e5d-932b-e9b314050490") {
+            // Handle sensor characteristic updates
+            // Get notification from ESP32
+            guard let data = characteristic.value else { return }
+            let floatValue = data.withUnsafeBytes { $0.load(as: Float.self) }
+            let timestamp = Date().currentTimeSec()
+            let newEntry = ENTRY(timestamp: timestamp, value: Double(floatValue))
+            entries.append(newEntry)
+        } else if characteristic.uuid == CBUUID(string: "1a70ee55-f504-40fe-b249-9609224a9310") {
+            // Handle battery characteristic updates
+            guard let data = characteristic.value else { return }
+            let floatValue = data.withUnsafeBytes { $0.load(as: Float.self) }
+            battery_percentage =  ( (0.4 * floatValue / 1000) + 3.3 ) / 8
+            print("Received battery level: \(battery_percentage)")
+        }
     }
     
     func rootMeanSquared(_ array: [Double]) -> Double {

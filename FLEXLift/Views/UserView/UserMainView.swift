@@ -13,7 +13,7 @@ struct UserMainView: View {
 
     var body: some View {
             NavigationView {
-                VStack(spacing:15) {
+                VStack() {
                     Spacer()
                     Text("FLEX Lift")
                         .font(.largeTitle)
@@ -30,7 +30,7 @@ struct UserMainView: View {
                     Spacer()
                     SettingsView()
                         .environmentObject(bluetoothManager)
-                    Spacer(minLength:100)
+                    Spacer()
                 }
             }
             .navigationBarBackButtonHidden(true)
